@@ -1,9 +1,14 @@
-<h1>Report a Wildlife Sighting</h1>
+<!--index.vtl-->
+<h1>Step 1: Add an animal to report
 
-<h3><a href="/animal/new">Add Animal to System</a></h3>
+<h3>Report a Wildlife Sighting</h3>
+
+<h4><a href="/animal/new">Add Animal to System</a></h4>
 <hr>
 
-<h3> Report Non-Endangered Animal Sighting </h3>
+<h1>Step 2: Report your sighting information</h1>
+
+<h4> Report Non-Endangered Animal Sighting </h4>
 <form action="/sighting" method="post">
   #if($animals.size() >= 0)
     <label>Select Animal</label>
@@ -23,7 +28,7 @@
 
 <hr>
 
-<h3> Report Endangered Animal Sighting </h3>
+<h4> Report Endangered Animal Sighting </h4>
 <form action="/endangered_sighting" method="post">
   #if($endangeredAnimals.size() >= 0)
     <label>Select Endangered Animal</label>
@@ -41,6 +46,7 @@
   #end
 </form>
 
+<h1>Step 3: View all animal sightings
 
 <h3>Endangered Animal Sightings</h3>
 
@@ -49,8 +55,8 @@
 #else
   #foreach ($endangeredAnimal in $endangeredAnimals)
     <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
-      <h4>$endangeredAnimal.getName()</h4>
-      <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
+      <h5>$endangeredAnimal.getName()</h5>
+      <h5>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h5>
       <p>Click for details</p>
     </a>
   #end
@@ -62,8 +68,8 @@
 #else
   #foreach ($animal in $animals)
     <a href="/animal/$animal.getId()" class="thumbnail">
-      <h4>$animal.getName()</h4>
-      <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
+      <h5>$animal.getName()</h5>
+      <h5>$animal.getSightings().size() Reported Sighting(s)</h5>
       <p>Click for details</p>
     </a>
   #end
