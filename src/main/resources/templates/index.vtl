@@ -14,7 +14,7 @@
 <form action="/sighting" method="post">
   #if($animals.size() >= 0)
     <label>Select Animal</label>
-    <select name="animalSelected">
+    <select name="animalSelected" required>
       #foreach($animal in $animals)
         <option value="$animal.getId()">$animal.getName()</option>
       #end
@@ -23,7 +23,11 @@
     <label>Location</label>
     <input type="text" name="latLong">
     <label>Your Name</label>
-    <input type="text" name="rangerName">
+    <select name="rangerName" required>
+      #foreach($ranger in $rangers)
+        <option value="$ranger.getName">$animal.getName</option>
+      #end
+    </select>
     <button type="submit">Submit Report</button>
   #end
 </form>
@@ -76,3 +80,4 @@
     </a>
   #end
 #end
+<p>If you are a new ranger, please fill out the form <a href="/rangers/ranger-form">here.</a></p>

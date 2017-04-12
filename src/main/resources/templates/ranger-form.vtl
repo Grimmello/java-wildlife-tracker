@@ -1,0 +1,20 @@
+<h4><a href="/">Home</a></h4>
+
+<h1>Add Ranger to Database</h1>
+
+<form action="/rangers/success" method="post">
+  <label>Ranger Name</label>
+  <input type="text" name="name">
+
+  <label>Ranger Email</label>
+  <input type="text" name="email">
+
+  <label>Location</location>
+  <select name="location">
+    #foreach ($location in $locations)
+      <option value="$location.getName">$location.getName</option>
+    #end
+  </select>
+  <button type="submit">Add Ranger</button>
+
+</form>
