@@ -177,7 +177,8 @@ CREATE TABLE sightings (
     id integer NOT NULL,
     animal_id integer,
     location character varying,
-    ranger_name character varying
+    ranger_name character varying,
+    date_created date
 );
 
 
@@ -244,7 +245,6 @@ ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq
 --
 
 COPY animals (id, name) FROM stdin;
-2	Cow
 \.
 
 
@@ -260,7 +260,6 @@ SELECT pg_catalog.setval('animals_id_seq', 2, true);
 --
 
 COPY endangered_animals (id, name, health, age) FROM stdin;
-1	Tiger	Ill	Newborn
 \.
 
 
@@ -305,9 +304,7 @@ SELECT pg_catalog.setval('rangers_id_seq', 1, false);
 -- Data for Name: sightings; Type: TABLE DATA; Schema: public; Owner: clifford
 --
 
-COPY sightings (id, animal_id, location, ranger_name) FROM stdin;
-1	1	asd	asfx
-2	1	asdf	asdf
+COPY sightings (id, animal_id, location, ranger_name, date_created) FROM stdin;
 \.
 
 
