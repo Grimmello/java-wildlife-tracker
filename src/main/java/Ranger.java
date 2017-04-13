@@ -2,7 +2,7 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ranger {
+public class Ranger implements RangerInterface {
   private int id;
   private String name;
   private String phoneNumber;
